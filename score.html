@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/do-futuristic" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/axial-cut" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sphere-next" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/alien-2" rel="stylesheet">
+    
+    <title>Quiz Game</title>
+</head>
+<body>
+    <!-- Slide score -->
+    <div id="resultatSlide">
+        <div id="leftColumn">
+        <div id="scoreBox">
+            <!-- score qui varie selon le nb de bonnes réponses -->
+            <div id="miniScoreBox">
+                <p id ="finaleScore"> /10</p>
+            </div>
+            
+        </div>
+        <div id="congratsMesgBox" >
+            <div class="scrollBar">
+            <!-- message qui varie selon le score -->
+            <!-- <p id="reallyGood">Congratulations, space traveler! You have successfully completed our coding quiz and proven that you have what it takes to soar to new heights in the world of programming.
+                <br><br>
+                Just as space travel requires careful planning, precise calculations, and a willingness to push beyond the boundaries of what's been done before, coding requires a similar set of skills and determination. By acing our quiz, you have demonstrated that you possess the knowledge and expertise to take on any coding challenge that comes your way.</p> -->
+            <!-- <p id="moyenScore">Congratulations, space explorer! While your score may not have propelled you into the digital universe, you have still managed to climb a part of that cosmic mountain. 
+                <br><br>
+                You are now on the right track to reach even higher peaks in the world of web development. Keep practicing and learning new things, and who knows? Perhaps next time, you'll reach even more dazzling stars!</p>
+            <p id="goToWork">Don't worry, space explorer! Even though your score may not have been as high as you had hoped, you still have plenty of time to improve. 
+                <br><br>
+                Like any space traveler, you must keep exploring and learning new things. Don't be afraid to make mistakes or stumble, for that is how you can improve and find your own way to the stars. So, stay the course and never give up on your dream of becoming a web development master!</p> -->
+            </div>
+        </div>
+    </div>
+
+     <div id="rightColumn"> 
+        <div id="resultatIllustration"> 
+        </div>
+        <div id="backBtnCase">
+            <a href="StartPage.html"><button id="backBtn"> Homepage </button></a>
+        </div>
+    </div>
+    <div id="footer">
+        <footer>
+            <p class="text-center"> 👨‍🚀  Marzouk  -  Florent  -  Michael  -  Alex  👨‍🚀</p>
+        </footer>
+        </div>
+   
+
+    <script>
+          
+        const score_valeure = document.querySelector("#finaleScore");
+        const value = localStorage.getItem("score-value");
+        finaleScore.innerHTML = `<p> ${value} /10 </p>`;
+        const contenu = document.querySelector(".scrollBar")
+        const msg = document.createElement('p')
+        const resultatIllustration = document.querySelector("#resultatIllustration")
+        img = document.createElement("img")
+
+            
+        if ( value > 7 ) {
+            
+            img.src = "yoda.png"
+            resultatIllustration.appendChild(img)
+            
+             
+            msg.innerHTML = "Congratulations, space traveler! You have successfully completed our coding quiz and proven that you have what it takes to soar to new heights in the world of programming. Just as space travel requires careful planning, precise calculations, and a willingness to push beyond the boundaries of what's been done before, coding requires a similar set of skills and determination. By acing our quiz, you have demonstrated that you possess the knowledge and expertise to take on any coding challenge that comes your way."
+
+        
+            contenu.appendChild(msg); 
+        }
+
+        if ( value >= 5 && value <= 7) {
+             msg.innerHTML = "Congratulations, space explorer! While your score may not have propelled you into the digital universe, you have still managed to climb a part of that cosmic mountain. You are now on the right track to reach even higher peaks in the world of web development. Keep practicing and learning new things, and who knows? Perhaps next time, you'll reach even more dazzling stars!"
+             img.src = "jabba.png"
+            resultatIllustration.appendChild(img)
+
+            contenu.appendChild(msg); 
+        }
+        if ( value < 5 )
+        {
+           msg.innerHTML="Don't worry, space explorer! Even though your score may not have been as high as you had hoped, you still have plenty of time to improve.Like any space traveler, you must keep exploring and learning new things.Don't be afraid to make mistakes or stumble, for that is how you can improve and find your own way to the stars. So, stay the course and never give up on your dream of becoming a web development master."
+           img.src = "ewok.png"
+            resultatIllustration.appendChild(img)
+           contenu.appendChild(msg); 
+        }
+        
+    </script>
+</body>
+</html>
